@@ -2,10 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import baiziRoutes from "./routes/baizis";
 import userRoutes from "./routes/user";
+import cors from "cors";
+
 const  port = process.env.PORT || 3001;
 
 const app = express();
 // App CONFIG
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
