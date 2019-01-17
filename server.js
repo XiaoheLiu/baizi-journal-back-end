@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
 import baiziRoutes from "./routes/baizis";
 import userRoutes from "./routes/user";
 import cors from "cors";
@@ -7,6 +8,17 @@ import cors from "cors";
 const  port = process.env.PORT || 3001;
 
 const app = express();
+
+//mongodb init
+var url = process.env.DATABASEURL || "mongodb://localhost/baizi_journal";
+mongoose.connect(
+  url,
+  { useNewUrlParser: true }
+);
+mongoose.set("useFindAndModify", false);
+
+mongoose.Promise = Promise;
+
 // App CONFIG
 app.use(cors());
 app.use(bodyParser.json());

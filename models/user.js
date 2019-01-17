@@ -14,6 +14,9 @@ export const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  baizis: [
+    { type: Schema.Types.ObjectId, ref: 'Baizi' }
+  ]
 });
 
 UserSchema.plugin(timestamps);

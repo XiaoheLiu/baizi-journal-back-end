@@ -1,5 +1,5 @@
 import User from '../models/user';
-import { hashPassword, generateToken, decodeToken } from '../utils/hash';
+import { hashPassword, generateToken, decodeToken } from '../utils/index';
 import { error } from 'util';
 
 export const getUser = async (token) => {

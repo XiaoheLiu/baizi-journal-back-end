@@ -8,32 +8,32 @@ router.get('/', async (req, res) => {
   try {
     const user = await getUser(token);
     if (user) {
-      res.send(user);
+      res.status(200).send(user);
     } else {
-      res.send(400);
+      res.sendStatus(400);
     }
   } catch(err) {
-    res.send(400);
+    res.sendStatus(400);
   }
 })
 
-router.put('/', async (req, res) => {
+router.post('/create', async (req, res) => {
     const { username, password } = req.body;
     const token = await createUser(username, password);
     if (token) {
-      res.send({ token });
+      res.status(201).send({ token });
     } else {
-      res.send(400);
+      res.sendStatus(400);
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/auth', async (req, res) => {
     const { username, password } = req.body;
     const token = await authUser(username, password);
     if (token) {
-      res.send({ token });
+      res.status(200).send({ token });
     } else {
-      res.send(401);
+      res.sendStatus(401);
     }
 });
 

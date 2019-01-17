@@ -15,4 +15,11 @@ export const hashPassword = (password) => {
 
 export const generateToken = (payload) => jwt.encode(payload, jwtSecret);
 
-export const decodeToken = (token) => jwt.decode(token, jwtSecret);
+export const decodeToken = (token) => {
+  try {
+    const decoded = jwt.decode(token, jwtSecret);
+    return decoded;
+  } catch (error) {
+    return null;
+  }
+}
