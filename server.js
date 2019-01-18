@@ -1,11 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import baiziRoutes from "./routes/baizis";
+import baiziRoutes from "./routes/baizi";
 import userRoutes from "./routes/user";
 import cors from "cors";
 
-const  port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // API Routes
-app.use("/api/baizis", baiziRoutes);
+app.use("/api/baizi", baiziRoutes);
 app.use("/api/user", userRoutes);
 
 // Start Server
