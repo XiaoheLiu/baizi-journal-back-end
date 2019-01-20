@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
   baiziBody.author = userId;
   try {
     const baizi = await createBaizi(baiziBody);
-    res.sendStatus(201);
+    res.status(201).send({ baiziId: baizi._id });
   } catch (err) {
     res.sendStatus(400);
   }
