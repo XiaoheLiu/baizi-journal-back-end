@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log('locals!!!!!', res.locals);
   const { userId } = res.locals;
   const baiziBody = req.body;
   baiziBody.author = userId;
