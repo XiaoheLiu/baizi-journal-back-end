@@ -1,7 +1,7 @@
 import Baizi from '../models/baizi';
 
 export const getBaiziByUser = async (id) => {
-  const userBaizi = await Baizi.find({ author: id });
+  const userBaizi = await Baizi.find({ author: id }).sort('-date');
   return userBaizi;
 }
 
