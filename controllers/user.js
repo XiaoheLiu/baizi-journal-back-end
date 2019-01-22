@@ -2,9 +2,8 @@ import User from '../models/user';
 import { hashPassword, generateToken, decodeToken } from '../utils/index';
 import { error } from 'util';
 
-export const getUser = async (token) => {
-  const { _id } = decodeToken(token);
-  const storedUser = await User.findById(_id, 'username');
+export const getUser = async (userId) => {
+  const storedUser = await User.findById(userId, 'username');
   return storedUser;
 }
 

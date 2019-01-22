@@ -1,13 +1,16 @@
 import express from 'express';
 import { MONGO_DUPLICATE_KEY_ERROR } from '../constants/code';
 import { createUser, authUser, getUser } from '../controllers/user';
+import { decodeToken } from '../utils/index'
 
 const router = express.Router();
 
+
 router.get('/', async (req, res) => {
-  const { token } = req.body;
+  const token = req.headers.authorization;
   try {
-    const user = await getUser(token);
+    const userFromToken = decodeToken(token);
+    const user = await getUser(userFromToken._id);
     if (user) {
       res.status(200).send(user);
     } else {
