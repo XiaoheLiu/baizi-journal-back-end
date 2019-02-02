@@ -10,7 +10,9 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 //mongodb init
-var url = process.env.DATABASEURL || "mongodb://localhost/baizi_journal";
+var url =
+  process.env.DATABASEURL ||
+  "mongodb://sdathena:liuxiaohe1992@ds161262.mlab.com:61262/baizi-journal"; // "mongodb://localhost/baizi_journal";
 mongoose.connect(
   url,
   { useNewUrlParser: true }
