@@ -1,0 +1,23 @@
+.baiziDisplay {
+  max-width: 60em;
+  margin: 15px auto;
+}
+
+.baiziTitle {
+  text-indent: 0.5em;
+  letter-spacing: 0.3em;
+}
+
+.character {
+  border: 1px solid black;
+  width: 1.9em;
+  height: 1.9em;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: -0.1em;
+}
+
+.punctuation {
+  width: 0;
+  position: absolute;
+}

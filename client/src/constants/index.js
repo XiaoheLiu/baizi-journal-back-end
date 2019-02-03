@@ -1,0 +1,5 @@
+export const SINGLE_BAIZI_CHARACTER_LIMIT = 100;
+
+export const PASSWORD_MIN_LENGTH = 6;
+
+export const USERNAME_MAX_LENGTH = 20;
