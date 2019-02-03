@@ -4,15 +4,14 @@ import mongoose from "mongoose";
 import baiziRoutes from "./routes/baizi";
 import userRoutes from "./routes/user";
 import cors from "cors";
+import path from "path";
 
 const port = process.env.PORT || 3001;
 
 const app = express();
 
 //mongodb init
-var url =
-  process.env.DATABASEURL ||
-  "mongodb://sdathena:liuxiaohe1992@ds161262.mlab.com:61262/baizi-journal"; // "mongodb://localhost/baizi_journal";
+var url = process.env.DATABASEURL || "mongodb://localhost/baizi_journal";
 mongoose.connect(
   url,
   { useNewUrlParser: true }
@@ -29,6 +28,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // API Routes
 app.use("/api/baizi", baiziRoutes);
 app.use("/api/user", userRoutes);
+
+// Serve React Frontend
+app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 
 // Start Server
 app.listen(port, function(err, res) {
